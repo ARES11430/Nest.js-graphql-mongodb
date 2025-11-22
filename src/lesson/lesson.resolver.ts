@@ -19,6 +19,7 @@ export class LessonResolver {
     return this.lessonService.getLessonById(id);
   }
 
+  @Query(() => [LessonType])
   getLessons() {
     return this.lessonService.getLessons();
   }

@@ -23,11 +23,11 @@ export class LessonService {
     return this.lessonRepository.save(lesson);
   }
 
-  async getLessons() {
-    return this.lessonRepository.find();
-  }
-
   async getLessonById(id: string) {
     return this.lessonRepository.findOne({ where: { id } });
+  }
+
+  async getLessons() {
+    return this.lessonRepository.find();
   }
 }

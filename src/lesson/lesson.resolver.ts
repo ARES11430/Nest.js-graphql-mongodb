@@ -29,7 +29,8 @@ export class LessonResolver {
     return this.lessonService.getLessons();
   }
 
-  getLessonById(id: string) {
+  @Query(() => LessonType)
+  getLessonById(@Args('id') id: string) {
     return this.lessonService.getLessonById(id);
   }
 }

@@ -1,4 +1,4 @@
-import { Args, Mutation, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateStudentInput } from './create-student.input';
 import { StudentService } from './student.service';
 import { StudentType } from './student.type';
@@ -12,5 +12,10 @@ export class StudentResolver {
     @Args('createStudentInput') createStudentInput: CreateStudentInput,
   ) {
     return this.studentService.createStudent(createStudentInput);
+  }
+
+  @Query(() => [StudentType])
+  getStudents() {
+    return this.studentService.getStudents();
   }
 }

@@ -20,4 +20,8 @@ export class StudentService {
     });
     return this.studentRepository.save(student);
   }
+
+  getStudents() {
+    return this.studentRepository.find();
+  }
 }

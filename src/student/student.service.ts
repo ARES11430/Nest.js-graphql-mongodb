@@ -28,4 +28,12 @@ export class StudentService {
   getStudentById(id: string) {
     return this.studentRepository.findOne({ where: { id } });
   }
+
+  getManyStudents(studentIds: string[]) {
+    return this.studentRepository.find({
+      where: {
+        id: { $in: studentIds } as any,
+      },
+    });
+  }
 }
